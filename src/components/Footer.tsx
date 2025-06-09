@@ -82,7 +82,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
           <p className="text-xs sm:text-sm text-muted-foreground">
-            © 2024 ExpenseTracker. All rights reserved.
+            © 2025 ExpenseTracker. All rights reserved.
           </p>
         </div>
       </div>
