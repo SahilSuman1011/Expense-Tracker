@@ -115,7 +115,6 @@ src/
 - Node.js 18+ 
 - npm or yarn
 - Supabase account
-
 ### Installation
 
 1. **Clone the repository**
@@ -129,44 +128,14 @@ src/
    npm install
    ```
 
-3. **Set up Supabase**
-   - Create a new Supabase project at [supabase.com](https://supabase.com)
-   - Copy your project URL and anon key
+3. **Environment Setup**
+   - Copy `.env.example` to `.env`
+   - Add your Supabase project URL and anon key
 
-4. **Database Setup**
-   The expenses table is automatically created with the following schema:
-   ```sql
-   CREATE TABLE expenses (
-     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-     user_id UUID NOT NULL REFERENCES auth.users(id),
-     amount NUMERIC NOT NULL,
-     category TEXT NOT NULL CHECK (category IN ('Rental', 'Groceries', 'Entertainment', 'Travel', 'Others')),
-     notes TEXT,
-     date DATE NOT NULL,
-     payment_mode TEXT NOT NULL CHECK (payment_mode IN ('UPI', 'Credit Card', 'Net Banking', 'Cash')),
-     created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
-     updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
-   );
-   ```
-
-5. **Enable Row Level Security (RLS)**
-   RLS policies are automatically set up to ensure users can only access their own expenses.
-
-6. **Start the development server**
+4. **Start the development server**
    ```bash
    npm run dev
    ```
-
-7. **Open your browser**
-   - Navigate to `http://localhost:8080`
-   - Create an account or sign in to start tracking expenses
-
-## 🔐 Security Features
-
-- **Row Level Security (RLS)** ensures users can only access their own data
-- **Authentication** handled securely by Supabase Auth
-- **Data validation** on both client and server side
-- **Protected routes** prevent unauthorized access
 
 ## 🎯 Key Features Implementation
 
